@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'people',
+    'partner',
+    'aftsale'
 ]
 
 MIDDLEWARE = [
@@ -75,14 +78,22 @@ WSGI_APPLICATION = 'qianfeng_piao.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'axf',
-        'HOST':'hxw1112.tk',
-        'PORT':3306,
-        'USER':'root',
-        'PASSWORD':'root'
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'piao',
+    #     'HOST': 'hxw1112.tk',
+    #     'PORT': 3306,
+    #     'USER': 'root',
+    #     'PASSWORD': 'root'
+    # }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'piao',
+    #     'HOST':'localhost',
+    #     'PORT':3306,
+    #     'USER':'root',
+    #     'PASSWORD':'root'
+    # }
 }
 
 
