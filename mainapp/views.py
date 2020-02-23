@@ -45,7 +45,7 @@ def login(request):
                 login_info = {
                     '_id': login_user.user_id,
                     'name': login_user.username,
-                    'code': '',
+                    'code': '777',
                 }
             else:
                 error = f'{username} 用户名或口令错误！'
@@ -87,5 +87,15 @@ def regist(request):
             new_user.save()
             return redirect('login/')
 
-
     return render(request, 'regist.html', locals())
+
+
+def all_user_info(request):
+    users = User.objects.filter(status=2)
+    list(users)
+
+    return render(request, 'all_userinfo.html', locals())
+
+def message(request):
+    return render(request, 'message.html')
+
