@@ -27,7 +27,7 @@
     <div class="loginboxinner">
 
         <div class="logo">
-            <h1 class="logo">FMS新会员<span>注册页面</span></h1>
+            <h1 class="logo">注册新会员<span>注册页面</span></h1>
         </div><!--logo-->
 
         {% if error %}
@@ -38,77 +38,23 @@
             {% csrf_token %}
             <div class="username">
                 <div class="usernameinner">
-                    <input type="text" name="phone" value="{{ phone }}" placeholder="请输入有效的手机号"/>
+                    <input type="text" name="username" value="{{ phone }}" placeholder="请输入用户名", id="username"/>
                 </div>
-            </div>
-            <div style="display: flex;flex-flow: row;align-items: center;height: 60px">
-                <div class="code" style="width: 220px">
-                    <div class="usernameinner">
-                        <input type="text" name="code" value="{{ code }}" placeholder="输入验证码"/>
-                    </div>
-                </div>
-                <button id="code_btn" type="button" onclick="get_code(this)">获取验证码</button>
             </div>
 
             <div class="password">
                 <div class="passwordinner">
-                    <input type="password" name="password" value="{{ password }}" id="password"/>
+                    <input type="password" name="password" value="{{ password }}" id="password" placeholder="请输入密码"/>
                 </div>
             </div>
 
-            <button>立即加入</button>
+            <button id="reg" type="submit">立即加入</button>
 
         </form>
 
     </div><!--loginboxinner-->
 </div><!--loginbox-->
 
-<script>
-    function get_code(btn) {
-
-        $ = jQuery.noConflict()
-
-        phone = $('input[name="phone"]').val()
-        if (phone == null || phone.trim().length == 0) {
-            // http://www.jqueryfuns.com/resource/view/2412 文档
-            // 吐丝效果
-            $.toast({
-                heading: 'Warning',
-                text: '请输入你的手机号！',
-                icon: 'warning', // error, info
-                showHideTransition: 'slide',
-                loader: false,//是否显示加载条
-                position: 'top-center'
-            })
-            return
-        }
-
-        $.getJSON('/user/code/?phone=' + phone, function (msg) {
-            $.toast({
-                heading: 'Success',
-                text: '短信验证码发送成功',
-                icon: 'success',
-                position: 'top-center'
-            })
-        });
-
-        // jQuery(dom) 将dom节点对象转成jQuery对象，再调用jQuery对象的方法
-        $(btn).attr('style', 'background-color:lightgray') //增加标签属性
-        $(btn).attr('disabled', 'disabled')
-
-        var n = 20;
-        var interval_id = setInterval(function () {
-            $(btn).text('等待 ' + --n + ' 秒')
-
-            if (n == 0) {
-                clearInterval(interval_id);  // 停止定时器
-                $(btn).removeAttr('style')  // 删除标签属性
-                $(btn).removeAttr('disabled')
-                $(btn).text('获取验证码')
-            }
-        }, 1000)
-    }
-</script>
 
 </body>
 </html>

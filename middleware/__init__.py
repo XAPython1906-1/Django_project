@@ -9,8 +9,8 @@ class LoginMiddleware(MiddlewareMixin):
 
     no_filter_path = (
         '/login/',
+        '/regist/',
         '/logout/',
-        '/user/regist/',
         '/user/code/'
     )
 
