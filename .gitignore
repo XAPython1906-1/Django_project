@@ -1,6 +1,3 @@
 .idea
 __pycache__
 *.log*
-venv
-lib
-include

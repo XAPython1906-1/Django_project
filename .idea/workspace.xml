@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43696710-6226-406c-b5f1-26f9ca392ced" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/qianfeng_piao.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/qianfeng_piao.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aftsale/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/aftsale/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aftsale/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/aftsale/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partner/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/partner/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partner/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/partner/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/people/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/people/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/people/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/people/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/qianfeng_piao/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/qianfeng_piao/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +58,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qianfeng_piao/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3078">
+            <state relative-caret-position="3807">
               <caret line="141" selection-start-line="141" selection-end-line="141" />
             </state>
           </provider>
@@ -69,14 +76,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-405" />
+            <state relative-caret-position="54">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qianfeng_piao/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
+            <state relative-caret-position="540">
               <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="e#637#669#0" expanded="true" />
@@ -101,7 +110,7 @@
         <entry file="file://$PROJECT_DIR$/partner/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="891">
-              <caret line="33" column="41" selection-start-line="32" selection-start-column="4" selection-end-line="33" selection-end-column="41" />
+              <caret line="33" selection-start-line="32" selection-start-column="4" selection-end-line="33" />
             </state>
           </provider>
         </entry>
@@ -109,7 +118,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/aftsale/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-429">
+            <state relative-caret-position="54">
               <caret line="5" selection-start-line="5" selection-end-line="5" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -132,13 +141,14 @@
         <option value="$PROJECT_DIR$/qianfeng_piao/urls.py" />
         <option value="$PROJECT_DIR$/qianfeng_piao/settings.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="845" />
-    <option name="width" value="1084" />
-    <option name="height" value="1050" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="844" />
+    <option name="width" value="1085" />
+    <option name="height" value="1052" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -146,27 +156,28 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="qianfeng_piao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="qianfeng_piao" type="462c0819:PsiDirectoryNode" />
+              <item name="Django_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Django_project" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="F:/piao_envi" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -221,16 +232,17 @@
       <workItem from="1582027365220" duration="4954000" />
       <workItem from="1582041849510" duration="3861000" />
       <workItem from="1582082187888" duration="2643000" />
+      <workItem from="1582163121140" duration="1284000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14685000" />
+    <option name="totallyTimeSpent" value="15969000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="682" y="0" width="874" height="847" extended-state="0" />
+    <frame x="681" y="0" width="875" height="848" extended-state="1" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27328432" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28029376" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -244,7 +256,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3282123" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32867134" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.34776536" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="bottom" id="manage.py@qianfeng_piao" order="13" weight="0.24055944" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -284,10 +296,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../test/Lib/site-packages/django/db/models/fields/__init__.py">
+    <entry file="file://$USER_HOME$/test/Lib/site-packages/django/db/models/fields/__init__.py" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/73ef312a-1bf9-4610-ad6a-ce1678ce9326/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/23a88c9d-31f1-454d-85d0-9828892c9fe2/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3c402138-0297-4f27-839b-57a3cff37f69/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qianfeng_piao/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="1162" selection-start-line="1162" selection-end-line="1162" />
+        <state relative-caret-position="3807">
+          <caret line="141" selection-start-line="141" selection-end-line="141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qianfeng_piao/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#637#669#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -304,22 +343,13 @@
     <entry file="file://$PROJECT_DIR$/partner/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="891">
-          <caret line="33" column="41" selection-start-line="32" selection-start-column="4" selection-end-line="33" selection-end-column="41" />
+          <caret line="33" selection-start-line="32" selection-start-column="4" selection-end-line="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/73ef312a-1bf9-4610-ad6a-ce1678ce9326/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/23a88c9d-31f1-454d-85d0-9828892c9fe2/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3c402138-0297-4f27-839b-57a3cff37f69/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/aftsale/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-429">
+        <state relative-caret-position="54">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -327,33 +357,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qianfeng_piao/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#637#669#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qianfeng_piao/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3078">
-          <caret line="141" selection-start-line="141" selection-end-line="141" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-405" />
+        <state relative-caret-position="54">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
       </provider>
     </entry>
   </component>
