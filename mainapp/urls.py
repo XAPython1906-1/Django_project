@@ -9,6 +9,6 @@ urlpatterns = [
     path('regist/', views.regist),
     path('partreg/', views.partner_regist),
     path('', views.index),
-    path('usersinfo/', views.all_user_info),
+    path('help/', views.help),
     path('message/', views.message)
 ]

@@ -1,17 +1,8 @@
-import json
-
-from django.db.models import Q
-from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 
 from common import md5_
 from .models import *
-
-from fms import settings
-
-# Create your views here.
 
 
 def login(request):
@@ -122,12 +113,11 @@ def partner_regist(request):
 
     return render(request, 'partreg.html', locals())
 
-def all_user_info(request):
-    users = User.objects.filter(status=2)
-    list(users)
 
-    return render(request, 'all_userinfo.html', locals())
 
 def message(request):
     return render(request, 'message.html')
+
+def help(request):
+    return render(request, 'help.html')
 

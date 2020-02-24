@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单信息</title>
+    {% extends 'dashboard.html' %}
+
+</head>
+<body>
+{% block head %}
+    <h1 class="pagetitle">系统管理</h1>
+    <span class="pagedesc">订单信息管理</span>
+{% endblock %}
+{% block neirong %}
+    <table width="100%">
+        <thead><tr>
+            <td>展出名称</td>
+            <td>数量</td>
+            <td>状态</td>
+            <td>创建订单时间</td>
+            <td>修改订单时间</td>
+            <td>操作</td></tr>
+        </thead>
+        {% for order in orders %}
+
+            <tbody>
+            <tr>
+                <td>{{ order.ticket_id.infoname }}</td>
+                <td>{{ order.number }}</td>
+                <td>{% if order.status == 1 %}未支付{% elif order.status == 2 %}已支付{% else %}已取消{% endif %}</td>
+                <td>{{ order.create_time }}</td>
+                <td>{{ order.update_time }}</td>
+                <td><button href="">删除</button> </td>
+
+            </tr>
+            </tbody>
+
+        {% endfor %}
+    </table>
+{% endblock %}
+</body>
+</html>
+

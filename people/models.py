@@ -39,7 +39,3 @@ class Order(models.Model):      # 订单表
         verbose_name_plural = verbose_name = '订单管理'
 
 
-
-
-
-

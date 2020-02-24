@@ -1,16 +1,15 @@
  <div class="vernav2 iconmenu">
     	<ul>
             {% if request.session.login_user.code == '666' %}
-{#                <li><a href="/settings/" class="widgets">系统配置</a></li>#}
                 <li><a href="#role_menu" class="support">系统管理</a>
                     <span class="arrow"></span>
                     <ul id="role_menu">
-                        <li><a href="/usersinfo/">客户信息管理</a></li>
-                        <li><a href="/order/">客户订单管理</a></li>
-                        <li><a href="/partner/">商家信息管理</a></li>
-                        <li><a href="/ticketinfo/">票务信息管理</a></li>
-                        <li><a href="/evaluate/">评价管理</a></li>
-                        <li><a href="/complaint/">投诉管理</a></li>
+                        <li><a href="/user/usersinfo/">客户信息管理</a></li>
+                        <li><a href="/user/allticket/">客户订单管理</a></li>
+                        <li><a href="/partner/partners/">商家信息管理</a></li>
+                        <li><a href="/partner/tickets/">票务信息管理</a></li>
+                        <li><a href="/aftsale/all_evaluates/">评价管理</a></li>
+                        <li><a href="/aftsale/all_complaint/">投诉管理</a></li>
                     </ul>
 
                 <li><a href="/message/" class="drafts">公告管理</a></li>
@@ -18,15 +17,14 @@
 
 
         {% if request.session.login_user.code == '777' %}
-            <li><a href="elements.html" class="tables">查看演出信息</a></li>
-            <li><a href="help.html" class="gallery">查询订单信息</a></li>
-            <li><a href="myorder.html" class="calendar">我的订单</a></li>
+            <li><a href="/partner/tickets/" class="tables">查看演出信息</a></li>
+            <li><a href="/user/myticket/" class="calendar">我的订单</a></li>
+            <li><a href="/aftsale/new_complaint/" class="calendar">投诉</a></li>
         {% endif %}
 
             {% if request.session.login_user.code == '888' %}
-                <li><a href="elements.html" class="tables">发布票务信息</a></li>
-                <li><a href="help.html" class="gallery">修改票务信息</a></li>
-                <li><a href="myorder.html" class="calendar">删除票务信息</a></li>
+                <li><a href="/partner/new_partner/" class="tables">发布票务信息</a></li>
+                <li><a href="/partner/my_ticket/" class="gallery">我的票务信息</a></li>
             {% endif %}
         </ul>
         <a class="togglemenu"></a>

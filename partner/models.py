@@ -6,6 +6,7 @@ class Partner(models.Model):     # 合作商表
     partner_id = models.AutoField(primary_key=True, auto_created=True, verbose_name='合作商id')
     partname = models.CharField(max_length=20, verbose_name='合作商名称')
     password = models.CharField(max_length=100, verbose_name='密码')
+    phone = models.CharField(max_length=11, verbose_name='电话号码')
     address = models.TextField(null=True, default="暂未填写", verbose_name='地址')
 
     class Meta:
@@ -23,11 +24,11 @@ class TicketInfo(models.Model):     # 票务信息表
 
     ticket_id = models.AutoField(primary_key=True, auto_created=True, verbose_name='票务信息id')
     partner_id = models.ForeignKey(Partner, on_delete=models.CASCADE, verbose_name='关联所属合作商')
-    infoname = models.TextField(verbose_name='演出名称')
+    infoname = models.CharField(verbose_name='演出名称', max_length=100)
     address = models.TextField(verbose_name='演出地址')
     tictype = models.IntegerField(choices=TYPE_CHOICES, verbose_name='类型选择')
     show_time = models.DateTimeField(verbose_name='演出时间')
-    peice = models.FloatField(verbose_name='单张价格')
+    price = models.FloatField(verbose_name='单张价格')
     status = models.IntegerField(choices=STAUTS_CHOICES, default=1, verbose_name='销售状态')
     total = models.IntegerField(verbose_name='总票数')
     surplus = models.IntegerField(verbose_name='剩余票数')

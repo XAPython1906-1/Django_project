@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评价信息管理</title>
+    {% extends 'dashboard.html' %}
+
+</head>
+<body>
+{% block head %}
+    <h1 class="pagetitle">系统管理</h1>
+    <span class="pagedesc">评价信息管理</span>
+{% endblock %}
+{% block neirong %}
+    <table width="100%">
+        <thead><tr>
+            <td>评价id</td>
+            <td>关联订单</td>
+            <td>评价内容</td>
+            <td>回复人</td>
+            <td>回复内容</td>
+            <td>创建时间</td>
+            <td>回复时间</td>
+            <td>操作</td></tr>
+        </thead>
+        {% for evaluate in evaluates %}
+
+            <tbody>
+            <tr>
+                <td>{{ evaluate.evaluate_id }}</td>
+                <td>{{ evaluate.order_id }}</td>text
+                <td>{{ evaluate.text }}</td>
+                <td>{{ evaluate.reply_people }}</td>
+                <td>{{ evaluate.reply_text }}</td>
+                <td>{{ evaluate.create_time }}</td>
+                <td>{{ evaluate.update_time }}</td>
+                <td><button href="">操作</button></td>
+
+            </tr>
+            </tbody>
+
+        {% endfor %}
+    </table>
+{% endblock %}
+</body>
+</html>
+

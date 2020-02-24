@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>投诉信息管理</title>
+    {% extends 'dashboard.html' %}
+
+</head>
+<body>
+{% block head %}
+    <h1 class="pagetitle">系统管理</h1>
+    <span class="pagedesc">投诉信息管理</span>
+{% endblock %}
+{% block neirong %}
+    <table width="100%">
+        <thead><tr>
+            <td>投诉id</td>
+            <td>关联信息</td>
+            <td>投诉人</td>
+            <td>投诉内容</td>
+            <td>回复人</td>
+            <td>回复内容</td>
+            <td>创建时间</td>
+            <td>回复时间</td>
+            <td>操作</td></tr>
+        </thead>
+        {% for complaint in complaints %}
+
+            <tbody>
+            <tr>
+                <td>{{ complaint.complaint_id }}</td>
+                <td>{{ complaint.ticket_id }}</td>text
+                <td>{{ complaint.comname }}</td>
+                <td>{{ complaint.text }}</td>
+                <td>{{ complaint.reply_people }}</td>
+                <td>{{ complaint.reply_text }}</td>
+                <td>{{ complaint.create_time }}</td>
+                <td>{{ complaint.update_time }}</td>
+                <td><button href="">操作</button></td>
+
+            </tr>
+            </tbody>
+
+        {% endfor %}
+    </table>
+{% endblock %}
+</body>
+</html>
+

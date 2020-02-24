@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看票务信息</title>
+    {% extends 'dashboard.html' %}
+
+</head>
+<body>
+{% block head %}
+    <h1 class="pagetitle">系统管理</h1>
+    <span class="pagedesc">客户信息管理</span>
+{% endblock %}
+{% block neirong %}
+    <table width="100%">
+        <thead><tr>
+            <td>展出名称</td>
+            <td>地点</td>
+            <td>时间</td>
+            <td>票价</td>
+            <td>剩余票数</td>
+            <td>状态</td>
+            <td>公司</td>
+            <td>操作</td></tr>
+        </thead>
+        {% for ticket in tickets %}
+
+            <tbody>
+            <tr>
+                <td>{{ ticket.infoname }}</td>
+                <td>{{ ticket.address }}</td>
+                <td>{{ ticket.show_time }}</td>
+                <td>{{ ticket.price }}</td>
+                <td>{{ ticket.surplus }}</td>
+                <td>{% if ticket.status == 1 %}在售中{% elif ticket.status == 2 %}已售罄{% else %}暂停销售{% endif %}</td>
+                <td>{{ ticket.partner_id.partname }}</td>
+                {% if request.session.login_user.code == '777' %}
+                    <td><button href="">订票</button></td>
+                {% endif %}
+                {% if request.session.login_user.code == '666' %}
+                    <td><button href="">操作</button></td>
+                {% endif %}
+                {% if request.session.login_user.code == '888' %}
+                    <td><button href="">编辑</button></td>
+                    <td><button href="">删除</button></td>
+                {% endif %}
+
+
+            </tr>
+            </tbody>
+
+        {% endfor %}
+    </table>
+{% endblock %}
+</body>
+</html>
+
