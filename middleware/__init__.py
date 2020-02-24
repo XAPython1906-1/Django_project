@@ -11,7 +11,8 @@ class LoginMiddleware(MiddlewareMixin):
         '/login/',
         '/regist/',
         '/logout/',
-        '/user/code/'
+        '/user/code/',
+        '/partreg/'
     )
 
     def process_request(self, request: HttpRequest):

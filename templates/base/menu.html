@@ -22,6 +22,12 @@
             <li><a href="help.html" class="gallery">查询订单信息</a></li>
             <li><a href="myorder.html" class="calendar">我的订单</a></li>
         {% endif %}
+
+            {% if request.session.login_user.code == '888' %}
+                <li><a href="elements.html" class="tables">发布票务信息</a></li>
+                <li><a href="help.html" class="gallery">修改票务信息</a></li>
+                <li><a href="myorder.html" class="calendar">删除票务信息</a></li>
+            {% endif %}
         </ul>
         <a class="togglemenu"></a>
         <br /><br />

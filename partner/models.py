@@ -5,7 +5,7 @@ class Partner(models.Model):     # 合作商表
 
     partner_id = models.AutoField(primary_key=True, auto_created=True, verbose_name='合作商id')
     partname = models.CharField(max_length=20, verbose_name='合作商名称')
-    password = models.CharField(max_length=20, verbose_name='密码')
+    password = models.CharField(max_length=100, verbose_name='密码')
     address = models.TextField(null=True, default="暂未填写", verbose_name='地址')
 
     class Meta:

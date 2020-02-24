@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>注册合作商</title>
+    {% include 'base/js.html' %}
+    {% include 'base/css.html' %}
+
+    <style>
+        #code_btn {
+            background-color: lightskyblue;
+            width: 120px;
+            height: 50px;
+            margin-left: 30px;
+        }
+
+        #code_btn:hover {
+            opacity: 0.8;
+        }
+
+    </style>
+</head>
+
+<body class="loginpage">
+<div class="loginbox">
+    <div class="loginboxinner">
+
+        <div class="logo">
+            <h1 class="logo">注册新合作商<span>注册页面</span></h1>
+        </div><!--logo-->
+
+        {% if error %}
+            <div class="loginmsg" style="color:lightcoral;">{{ error }}</div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="username">
+                <div class="usernameinner">
+                    <input type="text" name="username" value="{{ phone }}" placeholder="请输入用户名", id="username"/>
+                </div>
+            </div>
+
+            <div class="password">
+                <div class="passwordinner">
+                    <input type="password" name="password" value="{{ password }}" id="password" placeholder="请输入密码"/>
+                </div>
+            </div>
+
+            <button id="reg" type="submit">立即加入</button>
+
+        </form>
+
+    </div><!--loginboxinner-->
+</div><!--loginbox-->
+
+
+</body>
+</html>
