@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
     <meta charset="UTF-8">
     <title>查看票务信息</title>
     {% extends 'dashboard.html' %}
+    {% include 'base/js.html' %}
+    {% include 'base/css.html' %}
 
 </head>
 <body>
@@ -34,24 +36,48 @@
                 <td>{{ ticket.surplus }}</td>
                 <td>{% if ticket.status == 1 %}在售中{% elif ticket.status == 2 %}已售罄{% else %}暂停销售{% endif %}</td>
                 <td>{{ ticket.partner_id.partname }}</td>
-                {% if request.session.login_user.code == '777' %}
-                    <td><button href="">订票</button></td>
-                {% endif %}
                 {% if request.session.login_user.code == '666' %}
                     <td><button href="">操作</button></td>
+                {% endif %}
+                {% if request.session.login_user.code == '777' %}
+                    <td><button id="ding" value="{{ ticket.ticket_id }}">订票</button></td>
                 {% endif %}
                 {% if request.session.login_user.code == '888' %}
                     <td><button href="">编辑</button></td>
                     <td><button href="">删除</button></td>
                 {% endif %}
-
-
             </tr>
             </tbody>
-
         {% endfor %}
     </table>
 {% endblock %}
 </body>
+{% block js %}
+    <script>
+        $ = jQuery.noConflict();
+        $(function () {
+            $("#ding").click(function () {
+                var number = prompt("请输入数量：");
+                number = Number(number);
+
+                if(number && typeof(number) == "number" && number % 1 == 0){
+                    $.ajax({
+                        url: "/user/make_order/",
+                        type: 'POST',
+                        data: {"ticket":$(this).val(), "num":number},
+                        success: function () {
+
+                        }
+                    });
+
+
+
+                    alert(number + $(this).val());
+                }else {
+                    alert('请输入正确数量！')
+                }
+            })
+        })</script>
+{% endblock %}
 </html>
 

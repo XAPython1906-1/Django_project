@@ -30,29 +30,7 @@
 
 {% block js %}
     <script>
-        {#$ = jQuery.noConflict()  //当前页面中的$不存在的问题-其他的js占用#}
-        {#$(function () {#}
-        {#    $.ajax('/settings/', {#}
-        {#        type: 'get',#}
-        {#        data: 'type_=ajax',#}
-        {#        success: function (msg) {#}
-        {#            $('input[name="friend_block_size"]').val(msg.friend_block_size)#}
-        {#            $('input[name="block_default_size"]').val(msg.block_default_size)#}
-        {#        }#}
-        {#    })#}
-        {#})#}
-        {##}
-        {#function update_() {#}
-        {#    size1 = $('input[name="friend_block_size"]').val()#}
-        {#    size2 = $('input[name="block_default_size"]').val()#}
-        {#    $.ajax('/settings/', {#}
-        {#        type: 'post',#}
-        {#        data: 'type_=ajax&friend_block_size=' + size1 + '&block_default_size=' + size2,#}
-        {#        success: function (msg) {#}
-        {#            jAlert('更新成功', '提示')#}
-        {#        }#}
-        {#    })#}
-        {#}#}
+
     </script>
 {% endblock %}
 

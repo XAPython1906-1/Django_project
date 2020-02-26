@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
     <meta charset="UTF-8">
     <title>订单信息</title>
@@ -14,8 +14,11 @@
 {% block neirong %}
     <table width="100%">
         <thead><tr>
+            <td>订单编号</td>
             <td>展出名称</td>
             <td>数量</td>
+            <td>单价</td>
+            <td>总价</td>
             <td>状态</td>
             <td>创建订单时间</td>
             <td>修改订单时间</td>
@@ -25,12 +28,24 @@
 
             <tbody>
             <tr>
+                <td>{{ order.order_id }}</td>
                 <td>{{ order.ticket_id.infoname }}</td>
                 <td>{{ order.number }}</td>
-                <td>{% if order.status == 1 %}未支付{% elif order.status == 2 %}已支付{% else %}已取消{% endif %}</td>
+                <td>{{ order.ticket_id.price }}</td>
+                <td>{% widthratio order.ticket_id.price 1 order.number %}</td>
+                <td>{% if order.status == 1 %}已支付{% elif order.status == 2 %}未支付{% else %}已取消{% endif %}</td>
                 <td>{{ order.create_time }}</td>
                 <td>{{ order.update_time }}</td>
-                <td><button href="">删除</button> </td>
+                <td>
+                    {% if order.status == 2 %}
+                        <button id="pay" value="{{ order.order_id }}">支付</button>
+                        <button id="remove" value="{{ order.order_id }}">取消订单</button>
+                    {% elif order.status == 1 %}
+                        <button id="evaluate" value="{{ order.ticket_id.ticket_id }}">评价</button>
+                    {% else %}{% endif %}
+                    <button id="complaint" value="{{ order.ticket_id.ticket_id }}">投诉</button>
+
+                </td>
 
             </tr>
             </tbody>
@@ -39,5 +54,73 @@
     </table>
 {% endblock %}
 </body>
+{% block js %}
+    <script>
+    $ = jQuery.noConflict();
+    $(function () {
+        $("#evaluate").click(function () {
+            var neirong = prompt("请输入内容：");
+
+            if(neirong){
+                $.ajax({
+                    url: "/aftsale/new_evaluate/",
+                    type: "POST",
+                    data: {"text": neirong, "order": $(this).val()},
+                    success: function () {
+                    }
+                });
+            }else {
+                alert('尚无内容填写！')
+            }
+        });
+
+        $("#remove").click(function () {
+            var queren = prompt("请输入内容(确认请输入yes)：");
+
+            if(queren === "yes"){
+                $.ajax({
+                    url: "/user/remove_order/",
+                    type: "POST",
+                    data: {"queren": queren, "order": $(this).val()},
+                    success: function () {
+                    }
+                });
+            }else {
+                alert('已取消！')
+            }
+        });
+
+        $("#complaint").click(function () {
+            var neirong = prompt("请输入内容：");
+
+            if(neirong){
+                $.ajax({
+                    url: "/aftsale/new_complaint/",
+                    type: "POST",
+                    data: {"text": neirong, "ticket": $(this).val()},
+                    success: function () {
+                    }
+                });
+            }else {
+                alert('尚无内容填写！')
+            }
+        });
+
+        $("#pay").click(function () {
+            $.ajax({
+                url: "/user/pay_order/",
+                type: "POST",
+                data: {"order_id": $(this).val()},
+                success: function () {
+                    location.reload(true)
+                }
+            })
+        })
+
+
+
+    })</script>
+{% endblock %}
+
 </html>
 

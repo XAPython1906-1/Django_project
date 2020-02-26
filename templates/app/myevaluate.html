@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>我的评价</title>
+    {% extends 'dashboard.html' %}
+
+</head>
+<body>
+{% block head %}
+    <h1 class="pagetitle">系统管理</h1>
+    <span class="pagedesc">我的评价</span>
+{% endblock %}
+{% block neirong %}
+    <table width="100%">
+        <thead><tr>
+            <td>订单编号</td>
+            <td>内容</td>
+            <td>回复人</td>
+            <td>回复信息</td>
+            <td>评价时间</td>
+            <td>回复时间</td></tr>
+        </thead>
+        {% for evaluate in evaluates %}
+            {% for evaluat in evaluate %}
+                <tbody>
+                <tr>
+                    <td>{{ evaluat.order_id.order_id }}</td>
+                    <td>{{ evaluat.text }}</td>
+                    <td>{{ evaluat.reply_people }}</td>
+                    <td>{{ evaluat.reply_text }}</td>
+                    <td>{{ evaluat.create_time }}</td>
+                    <td>{{ evaluat.update_time }}</td>
+                    <td>
+
+                    </td>
+
+                </tr>
+                </tbody>
+            {% endfor %}
+        {% endfor %}
+    </table>
+{% endblock %}
+</body>
+{% block js %}
+    <script>
+        $ = jQuery.noConflict();
+        $(function () {
+
+        })</script>
+{% endblock %}
+
+</html>
+

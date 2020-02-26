@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>我的信息</title>
+    {% extends 'dashboard.html' %}
+
+</head>
+<body>
+{% block head %}
+    <h1 class="pagetitle">系统管理</h1>
+    <span class="pagedesc">我的信息</span>
+{% endblock %}
+{% block neirong %}
+    <table width="100%">
+        <thead><tr>
+            <td>用户ID</td>
+            <td>名称</td>
+            <td>电话号码</td>
+            <td>身份证号码</td>
+            <td>地址</td>
+        </thead>
+
+            <tbody>
+            <tr>
+                <td>{{ my.user_id }}</td>
+                <td>{{ my.username }}</td>
+                <td>{{ my.phone_number }}</td>
+                <td>{{ my.user_number }}</td>
+                <td>{{ my.address }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button class="edit" value="1">修改</button></td>
+                <td><button class="edit" value="2">修改</button></td>
+                <td><button class="edit" value="3">修改</button></td>
+                <td><button class="edit" value="4">修改</button></td>
+            </tr>
+
+            </tbody>
+
+    </table>
+{% endblock %}
+</body>
+{% block js %}
+    <script>
+        $ = jQuery.noConflict();
+        $(function () {
+            $(".edit").click(function () {
+                var neirong = prompt("请输入修改的内容：");
+                status = $(this).val();
+
+                if(neirong){
+                    $.ajax({
+                        url: "/user/edit_my/",
+                        type: "POST",
+                        data: {"xiugai": neirong, "status": status},
+                        success: function () {
+                            location.reload(true)
+                        }
+                    });
+                }else {
+                    alert('尚无内容填写！')
+                }
+            })
+        })</script>
+{% endblock %}
+
+</html>
+

@@ -20,7 +20,6 @@ class User(models.Model):       # 用户表
         verbose_name_plural = verbose_name = '用户管理'
 
 
-
 class Order(models.Model):      # 订单表
 
     PAID_CHOICES = [(1, '未支付'), (2, '已支付'), (3, '已取消')]

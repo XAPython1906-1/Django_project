@@ -17,9 +17,11 @@
 
 
         {% if request.session.login_user.code == '777' %}
+            <li><a href="/user/my/" class="tables">我的信息</a></li>
             <li><a href="/partner/tickets/" class="tables">查看演出信息</a></li>
-            <li><a href="/user/myticket/" class="calendar">我的订单</a></li>
-            <li><a href="/aftsale/new_complaint/" class="calendar">投诉</a></li>
+            <li><a href="/user/myorder/" class="calendar">我的订单</a></li>
+            <li><a href="/aftsale/my_evaluate/" class="calendar">我的评价</a></li>
+            <li><a href="/aftsale/my_complaint/" class="calendar">我的投诉</a></li>
         {% endif %}
 
             {% if request.session.login_user.code == '888' %}

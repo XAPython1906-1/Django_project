@@ -25,7 +25,7 @@ class Complaint(models.Model):      # 投诉表
     comname = models.CharField(max_length=20, null=True, default='匿名', verbose_name='投诉人')
     ticket_id = models.ForeignKey(TicketInfo, on_delete=models.CASCADE, verbose_name='关联票务信息')
     text = models.TextField(verbose_name='投诉内容')
-    reply_peoplr = models.CharField(max_length=20, null=True, verbose_name='回复人')
+    reply_people = models.CharField(max_length=20, null=True, verbose_name='回复人')
     reply_text = models.TextField(null=True, verbose_name='回复内容')
     create_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
     update_time = models.DateTimeField(auto_now=True, verbose_name='回复时间')

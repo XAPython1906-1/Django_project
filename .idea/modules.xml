@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/qianfeng_piao.iml" filepath="$PROJECT_DIR$/.idea/qianfeng_piao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Django_project.iml" filepath="$PROJECT_DIR$/.idea/Django_project.iml" />
     </modules>
   </component>
 </project>
