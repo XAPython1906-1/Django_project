@@ -11,15 +11,17 @@
 <body>
 {% block head %}
     <h1 class="pagetitle">系统管理</h1>
-    <span class="pagedesc">客户信息管理</span>
+    <span class="pagedesc">票务信息管理</span>
 {% endblock %}
 {% block neirong %}
     <table width="100%">
         <thead><tr>
-            <td>展出名称</td>
+            <td>演出名称</td>
+            <td>演出类型</td>
             <td>地点</td>
             <td>时间</td>
             <td>票价</td>
+            <td>总票数</td>
             <td>剩余票数</td>
             <td>状态</td>
             <td>公司</td>
@@ -30,21 +32,48 @@
             <tbody>
             <tr>
                 <td>{{ ticket.infoname }}</td>
+                <td>
+                    {% if ticket.tictype == 1 %}
+                        演唱会
+                    {% elif ticket.tictype == 2 %}
+                        话剧歌剧
+                    {% elif ticket.tictype == 3 %}
+                        音乐会
+                    {% elif ticket.tictype == 4 %}
+                        展览休闲
+                    {% elif ticket.tictype == 5 %}
+                        舞蹈
+                    {% elif ticket.tictype == 6 %}
+                        其他
+                    {% endif %}
+                </td>
+
                 <td>{{ ticket.address }}</td>
                 <td>{{ ticket.show_time }}</td>
                 <td>{{ ticket.price }}</td>
+                <td>{{ ticket.total }}</td>
                 <td>{{ ticket.surplus }}</td>
-                <td>{% if ticket.status == 1 %}在售中{% elif ticket.status == 2 %}已售罄{% else %}暂停销售{% endif %}</td>
+                <td>{% if ticket.status == 1 %}在售中{% elif ticket.status == 2 %}已售罄{% else %}未审核{% endif %}</td>
                 <td>{{ ticket.partner_id.partname }}</td>
-                {% if request.session.login_user.code == '666' %}
-                    <td><button href="">操作</button></td>
+                <td>{% if request.session.login_user.code == '666' %}
+                    {% if ticket.status == 3 %}
+                        <button class="shenhe" value="{{ ticket.ticket_id }}">审核</button>
+                    {% endif %}
+                    <button class="drop" value="{{ ticket.ticket_id }}">删除</button></td>
                 {% endif %}
                 {% if request.session.login_user.code == '777' %}
-                    <td><button id="ding" value="{{ ticket.ticket_id }}">订票</button></td>
+                    {% if ticket.status == 1 %}
+                        {% if ticket.surplus != 0 %}
+                            <td><button id="ding" value="{{ ticket.ticket_id }}">订票</button></td>
+                        {% endif %}
+                    {% endif %}
                 {% endif %}
                 {% if request.session.login_user.code == '888' %}
-                    <td><button href="">编辑</button></td>
-                    <td><button href="">删除</button></td>
+                    <td>
+{#                        <button class="edit" value="{{ ticket.ticket_id }}">编辑</button>#}
+                        <a href="/partner/one_ticket/{{ ticket.ticket_id }}"><button>编辑</button></a>
+                        <button class="drop" value="{{ ticket.ticket_id }}">删除</button>
+                    </td>
                 {% endif %}
             </tr>
             </tbody>
@@ -66,17 +95,62 @@
                         type: 'POST',
                         data: {"ticket":$(this).val(), "num":number},
                         success: function () {
-
+                            location.reload(true)
                         }
                     });
 
-
-
-                    alert(number + $(this).val());
                 }else {
                     alert('请输入正确数量！')
                 }
-            })
+            });
+
+            $(".shenhe").click(function () {
+                var queren = prompt("请输入内容(确认请输入yes)：");
+
+                if(queren === "yes"){
+                    $.ajax({
+                        url: "/partner/shenhe/",
+                        type: "POST",
+                        data: {"queren": queren, "ticket": $(this).val()},
+                        success: function () {
+                            location.reload(true)
+                        }
+                    });
+                }else {
+                    alert('已取消！');
+                }
+            });
+
+
+            $(".drop").click(function () {
+                var queren = prompt("请输入内容(确认请输入yes)：");
+
+                if(queren === "yes"){
+                    $.ajax({
+                        url: "/partner/remove_ticket/",
+                        type: "POST",
+                        data: {"queren": queren, "ticket": $(this).val()},
+                        success: function () {
+                            location.reload(true)
+                        }
+                    });
+                }else {
+                    alert('已取消！')
+                }
+            });
+
+            {#$(".edit").click(function () {#}
+            {#    $.ajax({#}
+            {#        url: "/partner/one_ticket/",#}
+            {#        type: "POST",#}
+            {#        data: {"ticketid": $(this).val()},#}
+            {#        sussess: function () {#}
+            {##}
+            {#        }#}
+            {#    })#}
+            {#})#}
+
+
         })</script>
 {% endblock %}
 </html>

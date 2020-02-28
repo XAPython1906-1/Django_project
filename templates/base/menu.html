@@ -5,7 +5,7 @@
                     <span class="arrow"></span>
                     <ul id="role_menu">
                         <li><a href="/user/usersinfo/">客户信息管理</a></li>
-                        <li><a href="/user/allticket/">客户订单管理</a></li>
+                        <li><a href="/user/allorder/">客户订单管理</a></li>
                         <li><a href="/partner/partners/">商家信息管理</a></li>
                         <li><a href="/partner/tickets/">票务信息管理</a></li>
                         <li><a href="/aftsale/all_evaluates/">评价管理</a></li>
@@ -25,7 +25,7 @@
         {% endif %}
 
             {% if request.session.login_user.code == '888' %}
-                <li><a href="/partner/new_partner/" class="tables">发布票务信息</a></li>
+                <li><a href="/partner/new_ticket/" class="tables">发布票务信息</a></li>
                 <li><a href="/partner/my_ticket/" class="gallery">我的票务信息</a></li>
             {% endif %}
         </ul>

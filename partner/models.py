@@ -19,7 +19,7 @@ class TicketInfo(models.Model):     # 票务信息表
 
     TYPE_CHOICES = [(1, '演唱会'), (2, '话剧歌剧'),
                     (3, '音乐会'), (4, '展览休闲'),
-                    (4, '舞蹈'), (6, '其他')]
+                    (5, '舞蹈'), (6, '其他')]
     STAUTS_CHOICES = [(1, '在售中'), (2, '已售罄'), (3, '暂停销售')]
 
     ticket_id = models.AutoField(primary_key=True, auto_created=True, verbose_name='票务信息id')

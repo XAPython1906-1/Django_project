@@ -15,7 +15,7 @@
     <table width="100%">
         <thead><tr>
             <td>评价id</td>
-            <td>关联订单</td>
+            <td>关联订单id</td>
             <td>评价内容</td>
             <td>回复人</td>
             <td>回复内容</td>
@@ -28,13 +28,14 @@
             <tbody>
             <tr>
                 <td>{{ evaluate.evaluate_id }}</td>
-                <td>{{ evaluate.order_id }}</td>text
+                <td>{{ evaluate.order_id.order_id }}</td>text
                 <td>{{ evaluate.text }}</td>
                 <td>{{ evaluate.reply_people }}</td>
                 <td>{{ evaluate.reply_text }}</td>
                 <td>{{ evaluate.create_time }}</td>
                 <td>{{ evaluate.update_time }}</td>
-                <td><button href="">操作</button></td>
+
+                <td><button class="reply" value="{{ evaluate.evaluate_id }}">回复</button></td>
 
             </tr>
             </tbody>
@@ -43,5 +44,28 @@
     </table>
 {% endblock %}
 </body>
+{% block js %}
+<script>
+    $ = jQuery.noConflict();
+    $(function () {
+        $(".reply").click(function () {
+            var neirong = prompt("请输入回复内容：");
+
+            if(neirong){
+                $.ajax({
+                    url: "/aftsale/reply_evaluate/",
+                    type: 'POST',
+                    data: {"evaluate":$(this).val(), "neirong":neirong},
+                    success: function () {
+                        location.reload(true)
+                    }
+                 });
+
+            }else {
+                alert('无输入内容！')
+            }
+        });
+    })</script>
+{% endblock %}
 </html>
 

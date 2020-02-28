@@ -36,7 +36,7 @@
                 <td>{{ complaint.reply_text }}</td>
                 <td>{{ complaint.create_time }}</td>
                 <td>{{ complaint.update_time }}</td>
-                <td><button href="">操作</button></td>
+                <td><button class="reply" value="{{ complaint.complaint_id }}">回复</button></td>
 
             </tr>
             </tbody>
@@ -45,5 +45,28 @@
     </table>
 {% endblock %}
 </body>
+{% block js %}
+    <script>
+        $ = jQuery.noConflict();
+        $(function () {
+            $(".reply").click(function () {
+                var neirong = prompt("请输入回复内容：");
+
+                if(neirong){
+                    $.ajax({
+                        url: "/aftsale/reply_complaint/",
+                        type: 'POST',
+                        data: {"complaint":$(this).val(), "neirong":neirong},
+                        success: function () {
+                            location.reload(true)
+                        }
+                    });
+
+                }else {
+                    alert('无输入内容！')
+                }
+            });
+        })</script>
+{% endblock %}
 </html>
 

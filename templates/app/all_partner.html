@@ -2,14 +2,14 @@
 <html lang="zh-Hans">
 <head>
     <meta charset="UTF-8">
-    <title>查看票务信息</title>
+    <title>查看商家信息</title>
     {% extends 'dashboard.html' %}
 
 </head>
 <body>
 {% block head %}
     <h1 class="pagetitle">系统管理</h1>
-    <span class="pagedesc">客户信息管理</span>
+    <span class="pagedesc">商家信息管理</span>
 {% endblock %}
 {% block neirong %}
     <table width="100%">
@@ -26,7 +26,7 @@
                 <td>{{ partner.partname }}</td>
                 <td>{{ partner.phone }}</td>
                 <td>{{ partner.address }}</td>
-                <td><button href="">编辑</button></td>
+                <td><button class="drop" value="{{ partner.partner_id }}">删除</button></td>
 
             </tr>
             </tbody>
@@ -35,5 +35,27 @@
     </table>
 {% endblock %}
 </body>
+{% block js %}
+    <script>
+        $ = jQuery.noConflict();
+        $(function () {
+            $(".drop").click(function () {
+                var queren = prompt("请输入内容(确认请输入yes)：");
+
+                if(queren === "yes"){
+                    $.ajax({
+                        url: "/partner/remove_partner/",
+                        type: "POST",
+                        data: {"queren": queren, "partner": $(this).val()},
+                        success: function () {
+                            location.reload(true)
+                        }
+                    });
+                }else {
+                    alert('已取消！')
+                }
+            })
+        })</script>
+{% endblock %}
 </html>
 

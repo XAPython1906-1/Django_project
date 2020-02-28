@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>票务信息</title>
+    {% extends 'dashboard.html' %}
+
+</head>
+<body>
+{% block head %}
+    <h1 class="pagetitle">系统管理</h1>
+    <span class="pagedesc">单张票务信息</span>
+{% endblock %}
+{% block neirong %}
+
+    <form action="/partner/edit_ticket/{{ ticket_id }}/" method="post" style="font-size: 15px; text-align: center" onsubmit="return check()">
+        <p>演出名称：<input type="text" name="infoname" id="infoname" value="{{ ticket.infoname }}" style="width: 39%"></p>
+        演出类型：<select name="tictype" id="tictype" style="width: 39%">
+        <option value="1" id="option1">演唱会</option>
+        <option value="2" id="option2">话剧歌剧</option>
+        <option value="3" id="option3">音乐会</option>
+        <option value="4" id="option4">展览休闲</option>
+        <option value="5" id="option5">舞蹈</option>
+        <option value="6" id="option6">其他</option>
+    </select>
+        <p>演出地点：<input type="text" name="address" id="address" value="{{ ticket.address }}" style="width: 39%"></p>
+        <p>演出日期时间：
+            <input type="date" class="date" name="date" id="date" value="{{ date }}" style="width: 18%">
+            <input type="time" class="time" name="time" id="time" value="{{ time }}" style="width: 18.5%">
+        </p>
+        <p>演出票价：<input type="number" step="0.01" name="price" id="price" value="{{ ticket.price }}" style="width: 9%" placeholder="元/张"></p>
+        <p>门票总数：<input type="number" name="total" id="total" value="{{ ticket.total }}" style="width: 9%" placeholder="张"></p>
+        <p><input id="submit" type="submit" value="提交" ></p>
+
+    </form>
+
+
+
+{% endblock %}
+</body>
+{% block js %}
+    <script>
+        $ = jQuery.noConflict();
+        $(function () {
+            $("#tictype").val('{{ ticket.status }}')
+
+        })</script>
+{% endblock %}
+
+</html>
+

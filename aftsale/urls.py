@@ -8,4 +8,6 @@ urlpatterns = [
     path('new_evaluate/', views.new_evaluate),
     path('my_evaluate/', views.my_evaluate),
     path('my_complaint/', views.my_complaint),
+    path('reply_evaluate/', views.reply_evaluate),
+    path('reply_complaint/', views.reply_complaint),
 ]

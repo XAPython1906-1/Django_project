@@ -30,7 +30,7 @@
                 <td>{{ user.phone_number }}</td>
                 <td>{{ user.user_number }}</td>
                 <td>{{ user.address }}</td>
-                <td><button href="">修改</button> <button href="">删除</button> </td>
+                <td><button class="drop" value="{{ user.user_id }}">删除</button> </td>
 
             </tr>
         </tbody>
@@ -40,5 +40,27 @@
     </table>
 {% endblock %}
 </body>
+{% block js %}
+    <script>
+        $ = jQuery.noConflict();
+        $(function () {
+            $(".drop").click(function () {
+                var queren = prompt("请输入内容(确认请输入yes)：");
+
+                if(queren === "yes"){
+                    $.ajax({
+                        url: "/user/remove_user/",
+                        type: "POST",
+                        data: {"queren": queren, "user": $(this).val()},
+                        success: function () {
+                            location.reload(true)
+                        }
+                    });
+                }else {
+                    alert('已取消！')
+                }
+            })
+        })</script>
+{% endblock %}
 </html>
 
